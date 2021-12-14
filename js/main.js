@@ -20,8 +20,6 @@ function handlerPlay() {
   console.log(clickNumber);
   if (clickNumber === 10) {
     reset.classList.remove("collapse");
-  } else if (clickNumber >= 11) {
-    reset.classList.add("collapse");
   }
   const randomNumber = getRandomNumber();
   console.log(randomNumber);
