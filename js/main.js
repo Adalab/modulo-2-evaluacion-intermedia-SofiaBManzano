@@ -1,7 +1,6 @@
 "use strict";
 
 //variables
-
 const optionSelect = document.querySelector(".js-optionSelect");
 const button = document.querySelector(".js-button");
 const winner = document.querySelector(".js-winner");
@@ -25,6 +24,9 @@ function handlerPlay() {
   } else if (randomNumber < 3 && selectValue === "papel") {
     console.log("la máquina cogió piedra");
     winner.innerHTML = "Punto para ti :)";
+  } else if (randomNumber < 3 && selectValue === "piedra") {
+    console.log("la máquina cogió piedra");
+    winner.innerHTML = "¡Empate!";
   } /*si es mayor o igual que 6 el movimiento es papel. pierde piedra y gana tijera*/ else if (
     randomNumber >= 6 &&
     selectValue === "piedra"
@@ -34,19 +36,21 @@ function handlerPlay() {
   } else if (randomNumber >= 6 && selectValue === "tijera") {
     console.log("la máquina cogió papel");
     winner.innerHTML = "Muy bien! punto!";
+  } else if (randomNumber >= 6 && selectValue === "papel") {
+    console.log("la máquina cogió papel");
+    winner.innerHTML = "¡Empate!";
   } /*y sino el movimiento generado es tijera, pierde papel gana piedra*/ else if (
     randomNumber > 3 &&
     randomNumber < 6 &&
     selectValue === "papel"
   ) {
-    console.log("la máquina cogió tijera");
+    console.log("La máquina cogió tijera");
     winner.innerHTML = "Has perdido :(";
+  } else if (randomNumber > 3 && randomNumber < 6 && selectValue === "tijera") {
+    console.log("la máquina cogió tijera");
+    winner.innerHTML = "¡Empate!";
   } else {
-    winner.innerHTML = "Ganaste!";
+    winner.innerHTML = "¡Ganaste!";
   }
 }
 button.addEventListener("click", handlerPlay);
-
-/*piedra gana a tijera */
-/*tijera gana a papel*/
-/*papel gana a piedra*/
