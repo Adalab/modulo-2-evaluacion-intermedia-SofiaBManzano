@@ -4,6 +4,10 @@
 const optionSelect = document.querySelector(".js-optionSelect");
 const button = document.querySelector(".js-button");
 const winner = document.querySelector(".js-winner");
+const human = document.querySelector(".js-human");
+const computer = document.querySelector(".js-computer");
+let humanWin = 0;
+let computerWin = 0;
 //funciones
 function getRandomNumber() {
   return Math.ceil(Math.random() * 10);
@@ -21,24 +25,40 @@ function handlerPlay() {
   if (randomNumber < 3 && selectValue === "tijera") {
     console.log("la máquina cogió piedra");
     winner.innerHTML = "Has perdido :(";
+    computerWin += 1;
+    computer.innerHTML = `Computadora: ${computerWin}`;
   } else if (randomNumber < 3 && selectValue === "papel") {
     console.log("la máquina cogió piedra");
     winner.innerHTML = "Punto para ti :)";
+    humanWin += 1;
+    human.innerHTML = `Jugadora: ${humanWin}`;
   } else if (randomNumber < 3 && selectValue === "piedra") {
     console.log("la máquina cogió piedra");
     winner.innerHTML = "¡Empate!";
+    humanWin += 1;
+    human.innerHTML = `Jugadora: ${humanWin}`;
+    computerWin += 1;
+    computer.innerHTML = `Computadora: ${computerWin}`;
   } /*si es mayor o igual que 6 el movimiento es papel. pierde piedra y gana tijera*/ else if (
     randomNumber >= 6 &&
     selectValue === "piedra"
   ) {
     console.log("la máquina cogió papel");
     winner.innerHTML = "Has perdido! :(";
+    computerWin += 1;
+    computer.innerHTML = `Computadora: ${computerWin}`;
   } else if (randomNumber >= 6 && selectValue === "tijera") {
     console.log("la máquina cogió papel");
     winner.innerHTML = "Muy bien! punto!";
+    humanWin += 1;
+    human.innerHTML = `Jugadora: ${humanWin}`;
   } else if (randomNumber >= 6 && selectValue === "papel") {
     console.log("la máquina cogió papel");
     winner.innerHTML = "¡Empate!";
+    humanWin += 1;
+    human.innerHTML = `Jugadora: ${humanWin}`;
+    computerWin += 1;
+    computer.innerHTML = `Computadora: ${computerWin}`;
   } /*y sino el movimiento generado es tijera, pierde papel gana piedra*/ else if (
     randomNumber > 3 &&
     randomNumber < 6 &&
@@ -46,11 +66,22 @@ function handlerPlay() {
   ) {
     console.log("La máquina cogió tijera");
     winner.innerHTML = "Has perdido :(";
+    computerWin += 1;
+    computer.innerHTML = `Computadora: ${computerWin}`;
   } else if (randomNumber > 3 && randomNumber < 6 && selectValue === "tijera") {
     console.log("la máquina cogió tijera");
     winner.innerHTML = "¡Empate!";
-  } else {
+    humanWin += 1;
+    human.innerHTML = `Jugadora: ${humanWin}`;
+    computerWin += 1;
+    computer.innerHTML = `Computadora: ${computerWin}`;
+  } else if (randomNumber > 3 && randomNumber < 6 && selectValue === "piedra") {
+    console.log("la máquina cogió tijera");
     winner.innerHTML = "¡Ganaste!";
+    humanWin += 1;
+    human.innerHTML = `Jugadora: ${humanWin}`;
+  } else if (selectValue === "selectPreview") {
+    winner.innerHTML = "Tienes que escoger una opción";
   }
 }
 button.addEventListener("click", handlerPlay);
