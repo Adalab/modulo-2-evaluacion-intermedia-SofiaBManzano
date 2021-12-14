@@ -17,17 +17,17 @@ function getRandomNumber() {
 
 //handler
 function handlerPlay() {
-  console.log(clickNumber);
-  if (clickNumber === 10) {
-    reset.classList.remove("collapse");
-  }
   const randomNumber = getRandomNumber();
   console.log(randomNumber);
   /*cuando se seleccione una opción, se guarda en el botón */
   const selectValue = optionSelect.value;
   console.log(selectValue);
-  clickNumber++;
-
+  clickNumber++; //aumentar el numero de jugadas
+  console.log(clickNumber);
+  btnReset();
+  if (clickNumber === 10) {
+    reset.classList.remove("collapse");
+  }
   /*lanza numero random*/
   /*si es menor que 3 el movimiento es piedra: pierde tijera gana papel*/
   if (randomNumber < 3 && selectValue === "tijera") {
@@ -93,15 +93,34 @@ function handlerPlay() {
   }
 }
 
-function handlerReset(event) {
-  event.preventDefault;
-  let humanWin = 0;
-  let computerWin = 0;
-  human.innerHTML = `Jugadora: 0`;
-  computer.innerHTML = `Computadora: 0`;
+function btnReset() {
+  //   reset.classList.add("collapse");
+
+  if (clickNumber === 10) {
+    if (humanWin > computerWin) {
+      winner.innerHTML = "¡Has ganado a la máquina! :)";
+    } else if (computerWin > humanWin) {
+      winner.innerHTML = "Has perdido contra la máquina :(";
+    } else {
+      winner.innerHTML = "El ordenador y tú habéis empatado.";
+    }
+    button.classList.add("collapse");
+    reset.classList.remove("collapse");
+  }
+}
+function handleClickReload(event) {
+  button.classList.remove("collapse");
+  reset.classList.add("collapse");
+  event.preventDefault();
+  humanWin = 0;
+  computerWin = 0;
+  clickNumber = 0;
+  winner.innerHTML = "Vamos a jugar!";
+  computer.innerHTML = `Computadora: ${computerWin}`;
+  human.innerHTML = `Jugadora: ${humanWin}`;
 }
 //listeners
 button.addEventListener("click", handlerPlay);
 
 //buttonreset
-reset.addEventListener("click", handlerReset);
+reset.addEventListener("click", handleClickReload);

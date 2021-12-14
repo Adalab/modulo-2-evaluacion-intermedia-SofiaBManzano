@@ -24,10 +24,21 @@
   color: white;
 }
 .button {
-  margin: 10px;
   background-color: rgb(247, 247, 133);
   color: grey;
-  width: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: monospace;
+  height: 35px;
+  border-radius: 50px;
+  margin-top: 20px;
+  border: none;
+}
+.buttonreset {
+  background-color: rgb(156, 245, 230);
+  color: grey;
+  padding-left: 20px;
+  padding-right: 20px;
   font-family: monospace;
   height: 35px;
   border-radius: 50px;
@@ -57,5 +68,5 @@
   color: grey;
 }
 .collapse {
-  visibility: collapse;
+  display: none;
 }

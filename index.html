@@ -9,7 +9,7 @@
   </head>
   <body>
     <main class="main">
-      <h1 class="title">Juego Piedra, Papel y Tijera</h1>
+      <h1 class="title">Piedra, Papel y Tijera</h1>
       <h2 class="subtitle">Introduce aquí tu jugada</h2>
       <select class="js-optionSelect select box">
         <option value="selectPreview">Seleccione su jugada</option>
@@ -17,17 +17,13 @@
         <option value="papel">Papel</option>
         <option value="tijera">Tijera</option>
         <div>
-          <input
-            class="js-reset collapse"
-            type="reset"
-            value="volver a empezar"
-          />
           <input class="js-button button" type="submit" value="Jugar" />
         </div>
       </select>
       <p class="js-winner winner">Vamos a jugar!</p>
       <p class="js-human computer">Jugadora: 0</p>
       <p class="js-computer computer">Computadora: 0</p>
+      <button class="js-reset collapse buttonreset" type="reset" value="volver a empezar" />Volver a empezar</button>
     </main>
 
     <script src="./js/main.js"></script>
