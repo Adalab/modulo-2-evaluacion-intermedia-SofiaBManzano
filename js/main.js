@@ -6,8 +6,10 @@ const button = document.querySelector(".js-button");
 const winner = document.querySelector(".js-winner");
 const human = document.querySelector(".js-human");
 const computer = document.querySelector(".js-computer");
+const reset = document.querySelector(".js-reset");
 let humanWin = 0;
 let computerWin = 0;
+let clickNumber = 0;
 //funciones
 function getRandomNumber() {
   return Math.ceil(Math.random() * 10);
@@ -15,11 +17,19 @@ function getRandomNumber() {
 
 //handler
 function handlerPlay() {
+  console.log(clickNumber);
+  if (clickNumber === 10) {
+    reset.classList.remove("collapse");
+  } else if (clickNumber >= 11) {
+    reset.classList.add("collapse");
+  }
   const randomNumber = getRandomNumber();
   console.log(randomNumber);
   /*cuando se seleccione una opción, se guarda en el botón */
   const selectValue = optionSelect.value;
   console.log(selectValue);
+  clickNumber++;
+
   /*lanza numero random*/
   /*si es menor que 3 el movimiento es piedra: pierde tijera gana papel*/
   if (randomNumber < 3 && selectValue === "tijera") {
@@ -84,4 +94,16 @@ function handlerPlay() {
     winner.innerHTML = "Tienes que escoger una opción";
   }
 }
+
+function handlerReset(event) {
+  event.preventDefault;
+  let humanWin = 0;
+  let computerWin = 0;
+  human.innerHTML = `Jugadora: 0`;
+  computer.innerHTML = `Computadora: 0`;
+}
+//listeners
 button.addEventListener("click", handlerPlay);
+
+//buttonreset
+reset.addEventListener("click", handlerReset);

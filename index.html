@@ -16,11 +16,18 @@
         <option value="piedra">Piedra</option>
         <option value="papel">Papel</option>
         <option value="tijera">Tijera</option>
-        <input class="js-button button" type="submit" value="Jugar" />
+        <div>
+          <input
+            class="js-reset collapse"
+            type="reset"
+            value="volver a empezar"
+          />
+          <input class="js-button button" type="submit" value="Jugar" />
+        </div>
       </select>
       <p class="js-winner winner">Vamos a jugar!</p>
-      <p class="js-human computer">Jugadora:</p>
-      <p class="js-computer computer">Computadora:</p>
+      <p class="js-human computer">Jugadora: 0</p>
+      <p class="js-computer computer">Computadora: 0</p>
     </main>
 
     <script src="./js/main.js"></script>

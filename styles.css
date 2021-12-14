@@ -56,3 +56,6 @@
   font-family: monospace;
   color: grey;
 }
+.collapse {
+  visibility: collapse;
+}
