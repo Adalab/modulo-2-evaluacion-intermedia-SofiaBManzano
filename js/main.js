@@ -91,20 +91,6 @@ function handlerPlay(event) {
   gameOver();
 }
 
-function btnReset() {
-  //   reset.classList.add("collapse");
-  if (moves === 10) {
-    if (humanWin > computerWin) {
-      winner.innerHTML = "¡Has ganado a la máquina! :)";
-    } else if (computerWin > humanWin) {
-      winner.innerHTML = "Has perdido contra la máquina :(";
-    } else {
-      winner.innerHTML = "El ordenador y tú habéis empatado.";
-    }
-    button.classList.add("collapse");
-    reset.classList.remove("collapse");
-  }
-}
 function handleClickReload(event) {
   event.preventDefault();
   button.classList.remove("collapse");
