@@ -72,7 +72,7 @@ function playGame() {
 }
 //mostrar resultados: texto y puntuación
 function gameOver() {
-  if (moves === 10) {
+  if (moves === 9) {
     if (humanWin > computerWin) {
       winner.innerHTML = "Has ganado el juego";
     } else if (humanWin < computerWin) {
@@ -80,8 +80,8 @@ function gameOver() {
     } else {
       winner.innerHTML = "Empate";
     }
-    button.classList.add("hidden");
-    reset.classList.remove("hidden");
+    button.classList.add("collapse");
+    reset.classList.remove("collapse");
   }
 }
 //handler
